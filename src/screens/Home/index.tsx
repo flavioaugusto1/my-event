@@ -6,10 +6,23 @@ export function Home() {
   const participants = ['Flávio', 'Isabel', 'Vanessa', 'Lúcia', 'Sandra', 'Augusto', 'André', 'Diego', 'Fabio', 'Mayk']
 
   function handleParticipantAdd() {
+    if(participants.includes('Isabel')){
+      return Alert.alert('Participante existe', 'Já existe um participante na lista com esse nome.')
+    }
     console.log('Adicionou');
   }
 
   function handleParticipantRemove(name: string) {
+    Alert.alert('Remover', `Deseja remover o participante ${name}?`, [
+      {
+        text: 'Sim',
+        onPress: () => Alert.alert("Deletado!")
+      },
+      {
+        text: 'Não',
+        style: 'cancel'
+      }
+    ])
     console.log(`Removeu o participante ${name}`)
   }
 
