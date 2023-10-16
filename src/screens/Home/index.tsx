@@ -9,6 +9,10 @@ export function Home() {
   const [participantName, setParticipantName] = useState('')
 
   function handleParticipantAdd() {
+    if(participantName == ''){
+      return Alert.alert('Nome não informado', 'Para cadastrar um participante é necessário que informe um nome.')
+    }
+
     if (participants.includes(participantName)) {
       return Alert.alert('Participante existe', 'Já existe um participante na lista com esse nome.')
     }
@@ -32,7 +36,7 @@ export function Home() {
   return (
     <View style={styles.container}>
       <Text style={styles.eventName}>
-        Nome do evento
+        Aniversário
       </Text>
       <Text style={styles.eventDate}>
         Quarta, 29 de novembro de 2023.
@@ -68,7 +72,7 @@ export function Home() {
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={() => (
           <Text style={styles.listEmptyText}>
-            Ninguém chegou ao evento ainda? Adicione alguém a sua lista de eventos.
+            Ninguém chegou ao evento ainda? Adicione alguém a sua lista de participantes.
           </Text>
         )}
       />
